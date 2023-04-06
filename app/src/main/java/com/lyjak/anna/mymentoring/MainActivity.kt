@@ -13,6 +13,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.lyjak.anna.mymentoring.meeting2.Bank
+import com.lyjak.anna.mymentoring.meeting2.SaveAccount
+import com.lyjak.anna.mymentoring.meeting2.SavingsAccount
 import com.lyjak.anna.mymentoring.ui.theme.MyMentoringTheme
 
 class MainActivity : ComponentActivity() {
@@ -33,9 +36,24 @@ fun Screen() {
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colorScheme.background
     ) {
-        Greeting("Android")
-        Goodby("Programmer")
+        val bank = Bank()
+        bank.createAccount(SaveAccount(1.0, 10.0, 1))
+        bank.createAccount(SaveAccount(0.1, 40.0, 2))
+        bank.createAccount(SaveAccount(0.1, 50.0, 3))
+        bank.createAccount(SavingsAccount(10.0, 50.0, 4))
+        bank.createAccount(SavingsAccount(10.0, 10.0, 5))
+        bank.createAccount(SavingsAccount(9.0, 3.0, 6))
+        Column {
+            AccountList(bank = bank)
+            bank.updateAccounts()
+            Text(text = "Accounts after update")
+            AccountList(bank = bank)
+        }
     }
+}
+@Composable
+fun AccountList(bank: Bank) {
+    bank.PresentAccounts()
 }
 
 @Composable
