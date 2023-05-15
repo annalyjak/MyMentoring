@@ -23,6 +23,8 @@ import com.lyjak.anna.mymentoring.meeting2.Account
 import com.lyjak.anna.mymentoring.meeting2.Bank
 import com.lyjak.anna.mymentoring.meeting2.SaveAccount
 import com.lyjak.anna.mymentoring.meeting2.SavingsAccount
+import com.lyjak.anna.mymentoring.meeting3.Bounded
+import com.lyjak.anna.mymentoring.meeting3.Overloading
 import com.lyjak.anna.mymentoring.ui.theme.MyMentoringTheme
 
 class MainActivity : ComponentActivity() {
@@ -55,6 +57,9 @@ fun Screen() {
             bank.updateAccounts()
             AccountList(accountList = state)
             Button(onClick = {
+                // RUN EXAMPLES:
+                Bounded().example()
+
                 bank.updateAccounts()
                 bank.createAccount(SavingsAccount(10.0, 3.0, 6))
                 state.value = bank.getAccounts()

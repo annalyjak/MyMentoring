@@ -22,3 +22,9 @@ open class Example: Abstraction(), Interface {
         // required to implement because do not have default implementation
     }
 }
+
+fun main() {
+    val examp = Example()
+    examp.exampleFunction()
+}
+

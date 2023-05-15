@@ -8,7 +8,7 @@ class Overriding {
         println(n) // wypisuje: 3.14
         a = B()
         n = a.m()
-        System.out.println(n) // wypisuje: 5
+        println(n) // wypisuje: 5
     }
 
 }
